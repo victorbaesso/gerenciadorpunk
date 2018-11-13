@@ -1,0 +1,30 @@
+.no-padding{
+	padding: 0px !important;  
+}
+.no-padding-left{
+	padding-left: 0px !important;
+}
+.no-padding-right{
+	padding-right: 0px !important;
+}
+#prioridade-situacao, #categorias, #tarefas{
+	padding-top: 60px;
+}
+#rome {
+	padding-top: 101px;
+	margin-bottom: 0px !important;
+}
+#rodape{
+	margin-top: 66px;
+	margin-bottom: 0px !important;
+}
+.container #tabela-tarefas #linha-tarefas:hover{
+	background-color: rgba(0,0,0,.10);
+}
+.container #tabela-tarefas #linha-tarefas:hover td{
+	border: 1px solid white;
+}
+.container #tabela-categorias #linha-categorias:hover{
+	background-color: rgba(0,0,0,.10);
+}
+

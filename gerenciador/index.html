@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/estilo.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		
+		<title>Tarefas Punk</title>
+	</head>
+	<body>
+		<header>
+			
+			<nav class="navbar navbar-expand-sm fixed-top bg-dark navbar-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="#rome">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#tarefas">Tarefas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#categorias">Categorias</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#prioridade-situacao">Prioridades</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#prioridade-situacao">Situação</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="jumbotron text-center" id="rome">
+			<h1 class="display-4">Gerenciador de Tarefas Punk</h1>
+			<p class="lead">Um simples gerenciador de tarefas, desenvolvido com JavaScript e muita música Punk !!!</p>
+			<hr class="my-4">
+			<p class="lead">Começe agora</p>
+			<a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#Modal-Tarefa" onclick="novoBloqueiaExclusaoTarefa()">Cadastrar Tarefa <i class="fas fa-thumbtack"></i></a>
+		</div>
+		<div class="container">
+			<div class="row" id="prioridade-situacao">
+				<div class="col-md-5 col-sm-12">
+					<div class="row"><h3>Prioridade</h3></div>
+					<div class="row">
+						<table class="table table-striped table-bordered" id="tabela-prioridade">
+							<thead>
+								<tr>
+									<th>Alta</th>
+									<th>Média</th>
+									<th>Baixa</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td id="tarefas-alta"></td>
+									<td id="tarefas-media"></td>
+									<td id="tarefas-baixa"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="offset-md-1 col-md-6 col-sm-12">
+					<div class="row"><h3>Situação</h3></div>
+					<div class="row">
+						<table class="table table-striped table-bordered" id="tabela-situacao">
+							<thead>
+								<tr>
+									<th>Finalizadas</th>
+									<th>Em Andamento</th>
+									<th>Em Análise</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td id="tarefas-finalizadas"></td>
+									<td id="tarefas-em-andamento"></td>
+									<td id="tarefas-em-analise"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="tarefas">
+				<div class="col no-padding-left">
+					<h3>Tarefas</h3>
+					<p class="lead">Para visualizar, editar ou excluir, clique sobre a tarefa.</p>
+				</div>
+				<div class="col text-right no-padding-right align-bottom" >
+					<p style="visibility: hidden;">Deixa o Botao embaixo :)</p>
+					<button type="button" class="btn btn-success" id="btn-nova-tarefa" data-toggle="modal" data-target="#Modal-Tarefa" onclick="novoBloqueiaExclusaoTarefa()">Nova Tarefa  <i class="fas fa-edit"></i></button>
+				</div>
+			</div>
+			<div class="row">
+				
+				<table class="table table-striped table-bordered" id="tabela-tarefas">
+					<thead>
+						<tr>
+							<th>Título</th>
+							<th>Prioridade</th>
+							<th>Situação</th>
+							<th>Categoria</th>
+						</tr>
+					</thead>
+					<tbody id="corpo-tabela-tarefas">
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="row" id="categorias">
+				<div class="col no-padding-left">
+					<h3>Categorias</h3>
+					<p class="lead">Para visualizar, editar ou excluir, clique sobre a categoria.</p>
+				</div>
+				<div class="col text-right no-padding-right">
+					<p style="visibility: hidden;">Deixa o Botao embaixo :)</p>
+					<button type="button" class="btn btn-success" id="btn-nova-categoria" data-toggle="modal" data-target="#Modal-Categoria" onclick="novoBloqueiaExclusaoCategoria()">Nova Categoria <i class="fas fa-tasks"></i></button>
+				</div>
+			</div>
+			<div class="row">
+				
+				<table class="table table-striped table-bordered" id="tabela-categorias">
+					<thead>
+						<tr>
+							<th>Nome</th>
+						</tr>
+					</thead>
+					<tbody id="corpo-tabela-categorias">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- The Modal -->
+		<div class="modal" id="Modal-Tarefa">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Nova Tarefa</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form onsubmit="return salvarTarefas()">
+							<div class="form-group">
+								<input type="hidden" id="id-tarefa" value="">
+								<input type="text" class="form-control" id="titulo-tarefa" placeholder="Título" required="required">
+							</div>
+							<div class="form-group">
+								<select class="custom-select" id="prioridade-tarefa">
+									<option selected="selected">Escolha uma prioridade...</option>
+									<option>Alta</option>
+									<option>Média</option>
+									<option>Baixa</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="custom-select" id="situacao-tarefa">
+									<option selected="selected">Escolha uma situação...</option>
+									<option>Em Análise</option>
+									<option>Em Andamento</option>
+									<option>Finalizada</option>
+								</select>
+							</div>
+							<div class="form-group autocomplete">
+								<select class="custom-select" id="categoria-tarefa">
+									
+								</select>
+							</div>
+							<div class="form-group text-right">
+								<button type="button" class="btn btn-danger" id="btn-excluir-tarefa" onclick="excluiTarefaByButton()">Excluir</button>
+								<button type="button" class="btn btn-warning" id="btn-limpar-tarefa" onclick="zeraInputTarefa()">Limpar</button>
+								<button type="button" class="btn btn-primary" id="btn-editar-tarefa" onclick="liberaEdicaoTarefa()">Editar</button>
+								<button type="submit" class="btn btn-success" id="btn-salvar-tarefa">Salvar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- The Modal -->
+		<div class="modal" id="Modal-Categoria">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header text-center">
+						<h4 class="modal-title">Nova Categoria de Tarefas</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form onsubmit="return salvarCategorias()">
+							<div class="form-group">
+								<input type="hidden" id="id-categoria" value="">
+								<input type="text" class="form-control" id="nome-categoria" placeholder="Nome" required="required">
+							</div>
+							<div class="form-group text-right">
+								<button type="button" class="btn btn-danger" id="btn-excluir-categoria" onclick="excluiCategoriaByButton()">Excluir</button>
+								<button type="button" class="btn btn-warning" id="btn-limpar-categoria" onclick="zeraInputCategoria()">Limpar</button>
+								<button type="button" class="btn btn-primary" id="btn-editar-categoria" onclick="liberaEdicaoCategoria()">Editar</button>
+								<button type="submit" class="btn btn-success" id="btn-salvar-categoria">Salvar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="jumbotron text-center" id="rodape">
+				
+				<hr class="my-4">
+				<p class="lead">Desenvolvido por:</p>
+				<p><a href="https://www.facebook.com/victhor.baesso" target="blank" class="badge badge-light">João Victor Baesso</a></p>
+				<p><a href="https://www.facebook.com/vitor.paulo.353" target="blank" class="badge badge-light">Vitor Paulo</a></p>
+				<p><a href="https://www.facebook.com/mateus.beltrame.1" target="blank" class="badge badge-light">Mateus Beltrame</a></p>
+				<p><a href="https://www.facebook.com/guinther.kosloski" target="blank" class="badge badge-light">Guinther Kosloski</a></p>
+				<hr class="my-4">
+				
+			</div>
+		</footer>
+		<script type="text/javascript" src="js/controlaCategorias.js"></script>
+		<script type="text/javascript" src="js/controlaTarefas.js"></script>
+	</body>
+</html>
