@@ -4,7 +4,7 @@
 
 <h3>UNOESC- Xanxere</h3>
 
-<a href="https://github.com/victorbaesso/gerenciadorpunk">Repositório versão atualizada</a>
+<a href="https://github.com/victorbaesso/tarefas-react-punk">Repositório versão atualizada</a>
 
 ***Todos os direitos reservados Joao Victor Baesso®***
 
